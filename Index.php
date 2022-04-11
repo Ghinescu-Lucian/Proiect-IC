@@ -16,13 +16,19 @@ session_start();
     <title>BikeAttack</title>
   </head>
   <body>
-    <img class="logo" src="./Imagini/LogoPng.png">
+  <a class="social-icon" href="./components/Cos.php" target="_blank">
+  <ion-icon name="cart-outline" role="img" class="md hydrated" aria-label="cart outline"></ion-icon>
+  </a>
+  <a class="social-icon" href="./components/Cos.php" target="_blank">
+  <ion-icon name="person-circle-outline" role="img" class="md hydrated" aria-label="person circle outline"></ion-icon>
+  </a>
+ 
+    <img class="logo" src="./Imagini/cyclist.png">
 <ul id="menu">
   <ul>
         <center>
     <li><a href="#">Acasa</a></li>
     <li><a href="./components/Biciclete.php">Biciclete</a></li>
-    <li><a href="./components/Cos.php">Cosul tau</a></li>
     <?php 
 	if($user_data['ID']==0)
 	 echo '<li><a href="./components/Login.php">Login</a></li>';
@@ -38,4 +44,6 @@ session_start();
 </div>
 </body>
 </html>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule="" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
