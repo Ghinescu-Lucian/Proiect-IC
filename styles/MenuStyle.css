@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Copperplate');
 
 body{
   margin: 0;
@@ -68,7 +68,7 @@ body{
 
 
 .title {
-	font-family: "Montserrat";
+	font-family: "Copperplate", fantasy;
 	text-align: center;
   font-size: 36px;
 	color: #000;

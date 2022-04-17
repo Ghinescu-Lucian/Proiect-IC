@@ -1,6 +1,6 @@
 <?php
 	include("../Functions/connection.php");
-	include("../Functions/functions.php");
+	include("../Functions/Functions.php");
 session_start();
 $user_data=check_login($con);
 
@@ -24,18 +24,22 @@ if(isset($_POST["keyword"])){
 <html>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../Styles/BicicleteStyle.css">
-    <title>BikeAttack</title>
+    <link rel="stylesheet" href="../styles/BicicleteStyle.css">
+    <title>Ride-by-bicycle</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
+  <a class="social-icon" href="./components/Cos.php" target="_blank">
+  <ion-icon name="cart-outline" role="img" class="md hydrated" aria-label="cart outline"></ion-icon>
+  </a>
+  <a class="social-icon" href="./components/Cos.php" target="_blank">
+  <ion-icon name="person-circle-outline" role="img" class="md hydrated" aria-label="person circle outline"></ion-icon>
+  </a>
 <ul id="menu">
   <ul>
         <center>
     <li><a href="../Index.php">Acasa</a></li>
-    <li><a href="#">Biciclete</a></li>
-    <li><a href="Cos.php">Cosul tau</a></li>
     <?php
 	if($user_data['ID']==0)
 	 echo '<li><a href="Login.php">Login</a></li>';
@@ -138,3 +142,6 @@ if(isset($_POST["keyword"])){
 
 </body>
 </html>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule="" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
