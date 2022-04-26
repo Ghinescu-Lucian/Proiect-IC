@@ -36,6 +36,17 @@ function getQuantity($con, $idProduct){
     return $Quantity;
 }
 
-
+function getOrdersKey($con,$keyword){
+	$product_query = mysqli_query($con,"select * from orders where Nume LIKE '%$keyword%' OR Username LIKE '%$keyword%' OR Detalii LIKE '%$keyword%'  ORDER BY Pret");
+	return $product_query;
+}
+function getOrdersUser($con,$username){
+	$order_query = mysqli_query($con,"select * from orders where Username = '$username' order by Data DESC");
+	return $order_query;
+}
+function getOrders($con){
+	$order_query = mysqli_query($con,"select * from orders order by Data DESC");
+	return $order_query;
+}
 
 ?>
