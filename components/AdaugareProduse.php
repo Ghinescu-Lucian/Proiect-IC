@@ -30,6 +30,7 @@ session_start();
     <li><a href="AdaugareProduse.php">Adaugare</a></li>
     <li><a href="Editare.php">Editare</a></li>		
     <li><a href="Comenzi.php">Comenzi</a></li>
+    <li><a href="Promotii.php">Promotii</a></li>
 	<?php
 	if($user_data['ID']==0)
 	 echo '<li><a href="Login.php">Login</a></li>';

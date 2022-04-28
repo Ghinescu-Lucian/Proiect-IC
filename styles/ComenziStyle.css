@@ -1,9 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 body{
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(120deg,#d7dfe4, #3e3941);
+  background-color: #85cfe7;
+}
+.social-icon{
+  font-size:48px;
+  color: #2b09ee;
+  text-decoration: none;
+}
+
+.social-icon:hover{
+    color:#000;
 }
 #menu{
   margin: 0;
