@@ -36,6 +36,12 @@ function getQuantity($con, $idProduct){
     return $Quantity;
 }
 
+function getLastPromoId($con){
+	$result = mysqli_query($con,"select idPromo from promotii order by idPromo DESC limit 1");
+    $promoId = mysqli_fetch_assoc($result);
+    return $promoId["idPromo"];
+}
+
 function getOrdersKey($con,$keyword){
 	$product_query = mysqli_query($con,"select * from orders where Nume LIKE '%$keyword%' OR Username LIKE '%$keyword%' OR Detalii LIKE '%$keyword%'  ORDER BY Pret");
 	return $product_query;

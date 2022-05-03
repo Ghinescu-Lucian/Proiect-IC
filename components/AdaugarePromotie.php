@@ -42,9 +42,9 @@ if (isset($_POST['add'])){
        // }
     }
     if (isset($_POST['sub'])){
-        echo "aici";
+     //   echo "aici";
        // if ($_GET['action'] == 'change'){
-            echo "aici2";
+          //  echo "aici2";
             foreach ($_SESSION['shopping_cart'] as $key => $value){
                 if($value["item_id"] == $_GET['id']){
                     if($value["item_quantity"] > 1){
@@ -108,7 +108,7 @@ if (isset($_POST['add'])){
                
                 $total = 0;
                     if (isset($_SESSION['shopping_cart'])){
-                        echo '<script>console.log("AICI")</script>';
+                       // echo '<script>console.log("AICI")</script>';
                         $product_id = array_column($_SESSION['shopping_cart'], 'idProduct');
                         foreach($_SESSION["shopping_cart"] as $keys => $values)
                         {
@@ -123,7 +123,7 @@ if (isset($_POST['add'])){
 
             </div>
         </div>
-        <form action="../Functions/Upload.php" method="post" enctype="multipart/form-data">
+        <form action="../Functions/Promotion.php" method="post" enctype="multipart/form-data">
     <div class="txt_field">
             <input name="Nume" type="text" required>
             <span></span>
@@ -174,7 +174,6 @@ if (isset($_POST['add'])){
                             echo $total;
                             ?> lei</h6>
                     </div>
-                    <a id="OrderButton"  href="AdaugarePromotie.php">Adauga promotie</a>
                 </div>
             </div>
 
