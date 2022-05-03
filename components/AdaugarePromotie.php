@@ -13,7 +13,7 @@ if (isset($_POST['remove'])){
             if($value["item_id"] == $_GET['id']){
                 unset($_SESSION['shopping_cart'][$key]);
                 echo "<script>alert('Produsul a fost sters!')</script>";
-                echo "<script>window.location = 'Cos.php'</script>";
+                echo "<script>window.location = 'AdaugarePromotie.php'</script>";
             }
         }
     }
@@ -35,7 +35,7 @@ if (isset($_POST['add'])){
                 }
                 else{
                     echo "<script>alert('Cantitatea maxim disponibila!')</script>";
-                    echo "<script>window.location = 'Cos.php'</script>";
+                    echo "<script>window.location = 'AdaugarePromotie.php'</script>";
                 } 
                 }
             }
@@ -58,7 +58,7 @@ if (isset($_POST['add'])){
                     }
                     else{
                         echo "<script>alert('Puteti sterge produsul!')</script>";
-                        echo "<script>window.location = 'Cos.php'</script>";
+                        echo "<script>window.location = 'AdaugarePromotie.php'</script>";
                     } 
                     }
                 }
@@ -76,7 +76,7 @@ if (isset($_POST['add'])){
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 <!-- Bootstrap CDN -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link rel="stylesheet" href="../Styles/cosStyle.css">
+<link rel="stylesheet" href="../Styles/AdaugareProduseStyle.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
@@ -112,21 +112,45 @@ if (isset($_POST['add'])){
                         $product_id = array_column($_SESSION['shopping_cart'], 'idProduct');
                         foreach($_SESSION["shopping_cart"] as $keys => $values)
                         {
-                            cartElement($values['item_img'], $values['item_name'],$values['item_price'], $values['item_id'], $values['item_quantity']);
+                            promoElement($values['item_img'], $values['item_name'],$values['item_price'], $values['item_id'], $values['item_quantity']);
                             $total = $total + (int)$values['item_price'] * (int)$values['item_quantity'];
                         }
                     }else{
-                        echo "<h5>Cart is Empty</h5>";
+                        echo "<h5>Nu a-ti selectat niciun produs!</h5>";
                     }
 
                 ?>
 
             </div>
         </div>
+        <form action="../Functions/Upload.php" method="post" enctype="multipart/form-data">
+    <div class="txt_field">
+            <input name="Nume" type="text" required>
+            <span></span>
+            <label>Nume</label>
+          </div>
+        <div class="txt_field">
+          <input name="Cantitate" type="text" required>
+          <span></span>
+          <label>Numar pachete</label>
+        </div>
+        <div class="txt_field">
+          <input name="Pret" type="text" required>
+          <span></span>
+          <label>Pret pachet</label>
+        </div>
+        <div class="txt_field">
+            <span></span>
+            <input> <textarea class="ckeditor" name="Descriere" rows=4 cols=45>Bicicleta</textarea>
+            <label>Descriere</label>
+          </div>
+    <input type="file" name="file">
+    <input type="submit" name="submit" value="Upload">
+  </form>
         <div class="col-md-4 offset-md-1 border rounded mt-5 bg-white h-25">
 
             <div class="pt-4">
-                <h6>Detalii pret</h6>
+                <h6>Detalii promotie</h6>
                 <hr>
                 <div class="row price-details">
                     <div class="col-md-6">
@@ -150,15 +174,13 @@ if (isset($_POST['add'])){
                             echo $total;
                             ?> lei</h6>
                     </div>
-                    <a id="OrderButton"  href="PlasareComanda.php">Plaseaza comanda</a>
+                    <a id="OrderButton"  href="AdaugarePromotie.php">Adauga promotie</a>
                 </div>
             </div>
 
         </div>
     </div>
 </div>
-<h3><a href="IstoricComenzi.php">Istoric Comenzi</a></h3>
-
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
