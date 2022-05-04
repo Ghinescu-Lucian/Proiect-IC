@@ -29,6 +29,7 @@ session_start();
         <center>
     <li><a href="#">Acasa</a></li>
     <li><a href="./components/Biciclete.php">Biciclete</a></li>
+    <li><a href="./components/PromotiiClient.php">Promotii</a></li>
     <?php 
 	if($user_data['ID']==0)
 	 echo '<li><a href="./components/Login.php">Login</a></li>';

@@ -6,6 +6,7 @@ $user_data=check_login($con);
 
 include("../Functions/function2.php");
 $products_data = getProducts($con);
+$promotions_data = getPromotions($con);
 
 if(isset($_POST["keyword"])){
   $keyword= $_POST["keyword"];
@@ -16,10 +17,46 @@ if(isset($_POST["keyword"])){
     echo "<script>alert('Cuvant inexistent!')</script>";  
 }
 
+if(isset($_POST["add_to_cart"]))
+{
+  $one=1;
+   if(isset($_SESSION["shopping_cart"]))
+  {
+         $item_array_id = array_column($_SESSION["shopping_cart"],"item_id");
+         if(!in_array($_POST["hidden_idProduct"], $item_array_id))
+         {
+              $count = count($_SESSION["shopping_cart"]);
+              $item_array = array(
+                'item_id'        => $_POST["hidden_idProduct"],
+                'item_name'      => $_POST["hidden_name"],
+                'item_price'     => $_POST["hidden_price"],
+                'item_img'       => $_POST["hidden_img"],
+                'item_quantity'  => $one
+      
+              );
+              $_SESSION["shopping_cart"][$count] = $item_array;
 
+         }
+         else{
+              echo '<script>alert("Produsul a fost adaugat deja in cos!")</script>';
+             // echo '<script>window.location="Biciclete.php"</script>';
 
+            }
+  }
+  else{
+    $item_array = array(
+          'item_id'        => $_POST["hidden_idProduct"],
+          'item_name'      => $_POST["hidden_name"],
+          'item_price'     => $_POST["hidden_price"],
+          'item_img'       => $_POST["hidden_img"],
+          'item_quantity'  => $one
 
+        );
+    $_SESSION["shopping_cart"][0]=$item_array;   
+  }
+}
 ?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -30,17 +67,14 @@ if(isset($_POST["keyword"])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-  <a class="social-icon" href="./components/Cos.php" target="_blank">
-  <ion-icon name="cart-outline" role="img" class="md hydrated" aria-label="cart outline"></ion-icon>
-  </a>
-  <a class="social-icon" href="./components/Cos.php" target="_blank">
-  <ion-icon name="person-circle-outline" role="img" class="md hydrated" aria-label="person circle outline"></ion-icon>
-  </a>
+ 
 <ul id="menu">
   <ul>
         <center>
-    <li><a href="../Index.php">Acasa</a></li>
-    <li><a href="../components/PromotiiClient.php">Promotii</a></li>
+        <li><a href="../Index.php">Acasa</a></li>
+    <li><a href="../components/Biciclete.php">Biciclete</a></li>
+    <li><a>Promotii</a></li>
+    
 
     <?php
 	if($user_data['ID']==0)
@@ -67,36 +101,36 @@ if(isset($_POST["keyword"])){
    <div class="container">
 
 <?php
-    if ($products_data->num_rows > 0) {
+    if ($promotions_data->num_rows > 0) {
         // output data of each row
-        while($row = $products_data->fetch_assoc()) {
+        while($row = $promotions_data->fetch_assoc()) {
         //  echo 'ID: ' .$row["idProduct"] ;
-          $res = getImage($row["idProduct"]);
+          //$res = getImage($row["idProduct"]);
              echo '
             <div class= "product">
             <div class="product-card">
-              <h2 class="name">'. $row["Nume"]. '</h2>
+              <h2 class="name">'. $row["Denumire"]. '</h2>
               <span class="price">' . $row["Pret"].' lei</span>
               <a class="popup-btn">Detalii</a>
-              <img src="../uploads/'.$res.'" class="product-img" alt="">
+              <img src="../uploads/'.$row["Image"].'" class="product-img" alt="">
             </div>
             <div class="popup-view">
               <div class="popup-card">
                 <a><i class="fas fa-times close-btn"></i></a>
                 <div class="product-img">
-                  <img src="../uploads/'.$res.'" alt="">
+                  <img src="../uploads/'.$row["Image"].'" alt="">
                 </div>
                 <div class="info">
-                  <h2>'.$row["Nume"].'<br><span>ID: '.$row["idProduct"].'</span></h2>
+                  <h2>'.$row["Denumire"].'<br><span>ID: '.$row["idPromo"].'</span></h2>
                   <p>'.$row["Descriere"].'.</p>
                   <span class="price">'.$row["Pret"].' lei</span>
                 <!--  <a href="#" class="add-cart-btn" >Add to Cart</a>-->
-                <form method="POST" action="Biciclete.php?action=add&id='.$row["idProduct"].'">
-                    <input type="hidden" name="hidden_name" value="'.$row["Nume"].'" />
+                <form method="POST" action="PromotiiClient.php?action=add&id='.$row["idPromo"].'">
+                    <input type="hidden" name="hidden_name" value="'.$row["Denumire"].'" />
                     <input type="hidden" name="hidden_price" value="'.$row["Pret"].'" />
-                    <input type="hidden" name="hidden_idProduct" value="'.$row["idProduct"].'" />
-                    <input type="hidden" name="hidden_img" value="'.$res.'" /> 
-                    <input type="submit" name="add_to_cart" class="add-cart-btn" value="Adauga in cos"/>
+                    <input type="hidden" name="hidden_idProduct" value="'.$row["idPromo"].'" />
+                    <input type="hidden" name="hidden_img" value="'.$row["Image"].'" /> 
+                    <input type="submit" name="add_to_cart" class="add-cart-btn" value="Selecteaza produs"/>
                  </form>    
                 </div>
               </div>
