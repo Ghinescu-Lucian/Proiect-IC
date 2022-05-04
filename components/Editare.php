@@ -6,6 +6,7 @@ $user_data=check_login($con);
 
 include("../Functions/function2.php");
 $products_data = getProducts($con);
+$promotions_data = getPromotions($con);
 
 if(isset($_POST["keyword"])){
   $keyword= $_POST["keyword"];
@@ -114,8 +115,9 @@ if(isset($_POST["keyword"])){
       </div>
 </div>
 </form>
-
+<h3> Produse </h3>
    <div class="container">
+     
 
 <?php
     if ($products_data->num_rows > 0) {
@@ -145,6 +147,13 @@ if(isset($_POST["keyword"])){
                         <input type="hidden" name="idProduct" value="'.$row["idProduct"].'" />
                         <input type="submit" name="add_to_cart" class="add-cart-btn" value="Sterge"/>
                     </form> 
+                    <form method="POST" action="Promotii.php?action=add&id='.$row["idProduct"].'">
+                    <input type="hidden" name="hidden_name" value="'.$row["Nume"].'" />
+                    <input type="hidden" name="hidden_price" value="'.$row["Pret"].'" />
+                    <input type="hidden" name="hidden_idProduct" value="'.$row["idProduct"].'" />
+                    <input type="hidden" name="hidden_img" value="'.$res.'" /> 
+                    <input type="submit" name="add_to_cart" class="add-cart-btn" value="Selecteaza produs"/>
+                 </form>  
             <div class="product-card">
               <a class="popup-btn">Editeaza</a>
             </div>
@@ -192,7 +201,7 @@ if(isset($_POST["keyword"])){
       else
       echo ' <h1> Nu exista produse de acest tip! </h1> ';
 ?>
-</div> 
+</div>
 <script src="../ckeditor/ckeditor.js"></script>
 <script src="../Scripts/suggestions.js"></script> 
    <script src="../Scripts/SearchBoxScript.js"></script> 

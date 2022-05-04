@@ -6,6 +6,7 @@ $user_data=check_login($con);
 
 include("../Functions/function2.php");
 $products_data = getProducts($con);
+$promotions_data = getPromotions($con);
 
 if(isset($_POST["keyword"])){
   $keyword= $_POST["keyword"];
@@ -101,35 +102,35 @@ if(isset($_POST["add_to_cart"]))
    <div class="container">
 
 <?php
-    if ($products_data->num_rows > 0) {
+    if ($promotions_data->num_rows > 0) {
         // output data of each row
-        while($row = $products_data->fetch_assoc()) {
+        while($row = $promotions_data->fetch_assoc()) {
         //  echo 'ID: ' .$row["idProduct"] ;
-          $res = getImage($row["idProduct"]);
+          //$res = getImage($row["idProduct"]);
              echo '
             <div class= "product">
             <div class="product-card">
-              <h2 class="name">'. $row["Nume"]. '</h2>
+              <h2 class="name">'. $row["Denumire"]. '</h2>
               <span class="price">' . $row["Pret"].' lei</span>
               <a class="popup-btn">Detalii</a>
-              <img src="../uploads/'.$res.'" class="product-img" alt="">
+              <img src="../uploads/'.$row["Image"].'" class="product-img" alt="">
             </div>
             <div class="popup-view">
               <div class="popup-card">
                 <a><i class="fas fa-times close-btn"></i></a>
                 <div class="product-img">
-                  <img src="../uploads/'.$res.'" alt="">
+                  <img src="../uploads/'.$row["Image"].'" alt="">
                 </div>
                 <div class="info">
-                  <h2>'.$row["Nume"].'<br><span>ID: '.$row["idProduct"].'</span></h2>
+                  <h2>'.$row["Denumire"].'<br><span>ID: '.$row["idPromo"].'</span></h2>
                   <p>'.$row["Descriere"].'.</p>
                   <span class="price">'.$row["Pret"].' lei</span>
                 <!--  <a href="#" class="add-cart-btn" >Add to Cart</a>-->
-                <form method="POST" action="Promotii.php?action=add&id='.$row["idProduct"].'">
-                    <input type="hidden" name="hidden_name" value="'.$row["Nume"].'" />
+                <form method="POST" action="Promotii.php?action=add&id='.$row["idPromo"].'">
+                    <input type="hidden" name="hidden_name" value="'.$row["Denumire"].'" />
                     <input type="hidden" name="hidden_price" value="'.$row["Pret"].'" />
-                    <input type="hidden" name="hidden_idProduct" value="'.$row["idProduct"].'" />
-                    <input type="hidden" name="hidden_img" value="'.$res.'" /> 
+                    <input type="hidden" name="hidden_idProduct" value="'.$row["idPromo"].'" />
+                    <input type="hidden" name="hidden_img" value="'.$row["Image"].'" /> 
                     <input type="submit" name="add_to_cart" class="add-cart-btn" value="Selecteaza produs"/>
                  </form>    
                 </div>

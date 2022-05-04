@@ -77,12 +77,17 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
             {
                   foreach ($_SESSION['shopping_cart'] as $key => $value)
                     unset($_SESSION['shopping_cart'][$key]);
+                
                   echo "<script>alert('Promotie inregistrata  cu succes!')</script>";
-                echo "<script>window.location = '../components/AdaugareProduse.php'</script>";    
+                  if(strcmp($user_data['Username'],"Admin")==0)
+                     echo "<script>window.location = '../components/AdaugareProduse.php'</script>";   
+                  else   echo "<script>window.location = 'Index.php'</script>"; 
             }
             else{
         echo "<script>alert('Eroare baza de date!')</script>";
-       echo "<script>window.location = '../components/AdaugareProduse.php'</script>";
+        if(strcmp($user_data['Username'],"Admin")==0)
+           echo "<script>window.location = '../components/AdaugareProduse.php'</script>";
+        else   echo "<script>window.location = 'Index.php'</script>";  
 
       }
         }else

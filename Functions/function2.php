@@ -26,6 +26,19 @@ function getProducts($con){
 	$product_query = mysqli_query($con,"select * from product where Cantitate != 0 order by Pret ASC");
 	return $product_query;
 }
+function getPromotions($con){
+	$product_query = mysqli_query($con,"select * from promotii where Cantitate != 0 order by Pret ASC");
+	return $product_query;
+}
+function getPromotionItems($con, $idPromotion){
+	$product_query = mysqli_query($con,"select * from produsepromotionale where idPromotie = '$idPromotion'");
+	return $product_query;
+}
+function getProductById($con, $idProduct){
+	$product_query = mysqli_query($con,"select * from product where idProduct = '$idProduct'");
+	return $product_query;
+}
+
 function getProductsKey($con,$keyword){
 	$product_query = mysqli_query($con,"select * from product where Nume LIKE '%$keyword%' OR Descriere LIKE '%$keyword%'  ORDER BY Pret");
 	return $product_query;
