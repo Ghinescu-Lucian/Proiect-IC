@@ -88,6 +88,7 @@ if (isset($_POST['add'])){
         <center>
     <li><a href="../Index.php">Acasa</a></li>
     <li><a href="Biciclete.php">Biciclete</a></li>
+    <li><a href="../components/PromotiiClient.php">Promotii</a></li>
     <?php
 	if($user_data['ID']==0)
 	 echo '<li><a href="Login.php">Login</a></li>';
@@ -170,3 +171,4 @@ if (isset($_POST['add'])){
 
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule="" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  

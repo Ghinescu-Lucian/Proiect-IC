@@ -61,12 +61,18 @@ if(isset($_POST["add_to_cart"]))
 <html>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../styles/BicicleteStyle.css">
+    <link rel="stylesheet" href="../styles/PromoyiiClient.css">
     <title>Ride-by-bicycle</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
+  <a class="social-icon" href="./components/Cos.php" target="_blank">
+  <ion-icon name="cart-outline" role="img" class="md hydrated" aria-label="cart outline"></ion-icon>
+  </a>
+  <a class="social-icon" href="./components/Cos.php" target="_blank">
+  <ion-icon name="person-circle-outline" role="img" class="md hydrated" aria-label="person circle outline"></ion-icon>
+  </a>
  
 <ul id="menu">
   <ul>
