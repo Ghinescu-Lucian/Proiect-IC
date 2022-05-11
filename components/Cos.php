@@ -42,9 +42,7 @@ if (isset($_POST['add'])){
        // }
     }
     if (isset($_POST['sub'])){
-        echo "aici";
        // if ($_GET['action'] == 'change'){
-            echo "aici2";
             foreach ($_SESSION['shopping_cart'] as $key => $value){
                 if($value["item_id"] == $_GET['id']){
                     if($value["item_quantity"] > 1){

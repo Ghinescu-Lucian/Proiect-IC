@@ -15,6 +15,44 @@ if(isset($_POST["keyword"])){
   else
     echo "<script>alert('Cuvant inexistent!')</script>";  
 }
+if(isset($_POST["add_to_cart"]))
+{
+  $one=1;
+   if(isset($_SESSION["shopping_cart"]))
+  {
+         $item_array_id = array_column($_SESSION["shopping_cart"],"item_id");
+         if(!in_array($_POST["hidden_idProduct"], $item_array_id))
+         {
+              $count = count($_SESSION["shopping_cart"]);
+              $item_array = array(
+                'item_id'        => $_POST["hidden_idProduct"],
+                'item_name'      => $_POST["hidden_name"],
+                'item_price'     => $_POST["hidden_price"],
+                'item_img'       => $_POST["hidden_img"],
+                'item_quantity'  => $one
+      
+              );
+              $_SESSION["shopping_cart"][$count] = $item_array;
+
+         }
+         else{
+              echo '<script>alert("Produsul a fost adaugat deja in cos!")</script>';
+             // echo '<script>window.location="Biciclete.php"</script>';
+
+            }
+  }
+  else{
+    $item_array = array(
+          'item_id'        => $_POST["hidden_idProduct"],
+          'item_name'      => $_POST["hidden_name"],
+          'item_price'     => $_POST["hidden_price"],
+          'item_img'       => $_POST["hidden_img"],
+          'item_quantity'  => $one
+
+        );
+    $_SESSION["shopping_cart"][0]=$item_array;   
+  }
+}
 
 
 
@@ -30,10 +68,10 @@ if(isset($_POST["keyword"])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-  <a class="social-icon" href="./components/Cos.php" target="_blank">
+  <a class="social-icon" href="../components/Cos.php" target="_blank">
   <ion-icon name="cart-outline" role="img" class="md hydrated" aria-label="cart outline"></ion-icon>
   </a>
-  <a class="social-icon" href="./components/Cos.php" target="_blank">
+  <a class="social-icon" href="../components/Profil.php" target="_blank">
   <ion-icon name="person-circle-outline" role="img" class="md hydrated" aria-label="person circle outline"></ion-icon>
   </a>
 <ul id="menu">
