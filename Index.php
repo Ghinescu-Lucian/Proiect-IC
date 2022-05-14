@@ -2,7 +2,7 @@
 session_start();
 
 	include("./Functions/connection.php");
-	include("./Functions/functions.php");
+	include("./Functions/Functions.php");
 
 	$user_data = check_login($con);
 
@@ -19,7 +19,7 @@ session_start();
   <a class="social-icon" href="./components/Cos.php" target="_blank">
   <ion-icon name="cart-outline" role="img" class="md hydrated" aria-label="cart outline"></ion-icon>
   </a>
-  <a class="social-icon" href="./components/Cos.php" target="_blank">
+  <a class="social-icon" href="./components/Profil.php" target="_blank">
   <ion-icon name="person-circle-outline" role="img" class="md hydrated" aria-label="person circle outline"></ion-icon>
   </a>
  

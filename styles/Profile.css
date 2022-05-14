@@ -1,6 +1,58 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+ 
+}
+
 body{
   
     background-color: #85cfe7;
-    height: 100vh;
-    overflow: hidden;
+   
   }
+
+  .profile {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: beige;
+    max-width: 500px;
+    margin:auto;
+    text-align: center;
+    margin-top: 5%;
+    font-family: arial;
+  }
+
+  .email {
+    color: grey;
+    font-size: 22px;
+  }
+  
+  .profile a {
+  background-color: #050505;
+  border: none;
+  color: white;
+  padding: 15px 229px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  
+  cursor: pointer;
+  }
+
+
+
+  .profile table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    }
+
+    .profile table td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    }
+
+    .profile table  tr:nth-child(even) {
+    background-color: #dddddd;
+    }

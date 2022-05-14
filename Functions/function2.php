@@ -20,6 +20,22 @@ function getImage($idProduct){
         }
 	
     }
+    function getImageProfil($Username){
+        $dbhost = "localhost";
+        $dbuser = "root";
+        $dbpass = "";
+        $dbname = "bikeattack";
+        $con = mysqli_connect($dbhost,$dbuser,$dbpass,$dbname);
+    
+        $image_query = mysqli_query($con,"select img from users where Username = '$Username' limit 1");
+        while($rows = mysqli_fetch_array($image_query))
+            {
+                //$img_name = $rows['img_name'];
+                $img_src = $rows['img'];
+                return $img_src;
+            }
+        
+        }
 
     
 function getProducts($con){
