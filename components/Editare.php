@@ -80,7 +80,7 @@ if(isset($_POST["keyword"])){
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Editare</title>
+  <title>Ride-by-bicycle</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../Styles/EditareStyle.css">
     <title>BikeAttack</title>

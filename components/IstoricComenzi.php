@@ -30,7 +30,7 @@ session_start();
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../Styles/ComenziStyle.css">
-    <title>BikeAttack</title>
+    <title>Ride-by-bicycle</title>
     <style>
         table {
         font-family: arial, sans-serif;

@@ -63,7 +63,7 @@ session_start();
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>BikeAttack</title>
+    <title>Ride-by-bicycle</title>
     <link rel="stylesheet" href="../Styles/LoginStyle.css">
   </head>
   <body>

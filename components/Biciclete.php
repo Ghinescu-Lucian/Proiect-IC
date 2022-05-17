@@ -68,10 +68,10 @@ if(isset($_POST["add_to_cart"]))
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-  <a class="social-icon" href="../components/Cos.php" target="_blank">
+  <a class="social-icon" href="../components/Cos.php">
   <ion-icon name="cart-outline" role="img" class="md hydrated" aria-label="cart outline"></ion-icon>
   </a>
-  <a class="social-icon" href="../components/Profil.php" target="_blank">
+  <a class="social-icon" href="../components/Profil.php">
   <ion-icon name="person-circle-outline" role="img" class="md hydrated" aria-label="person circle outline"></ion-icon>
   </a>
 <ul id="menu">
