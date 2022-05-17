@@ -13,7 +13,7 @@ if (isset($_POST['remove'])){
             if($value["item_id"] == $_GET['id']){
                 unset($_SESSION['shopping_cart'][$key]);
                 echo "<script>alert('Produsul a fost sters!')</script>";
-                echo "<script>window.location = 'AdaugarePromotie.php'</script>";
+                // echo "<script>window.location = 'AdaugarePromotie.php'</script>";
             }
         }
     }

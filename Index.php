@@ -13,13 +13,13 @@ session_start();
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="./Styles/MenuStyle.css">
-    <title>BikeAttack</title>
+    <title>Ride-by-bicycle</title>
   </head>
   <body>
-  <a class="social-icon" href="./components/Cos.php" target="_blank">
+  <a class="social-icon" href="./components/Cos.php" >
   <ion-icon name="cart-outline" role="img" class="md hydrated" aria-label="cart outline"></ion-icon>
   </a>
-  <a class="social-icon" href="./components/Profil.php" target="_blank">
+  <a class="social-icon" href="./components/Profil.php" >
   <ion-icon name="person-circle-outline" role="img" class="md hydrated" aria-label="person circle outline"></ion-icon>
   </a>
  
