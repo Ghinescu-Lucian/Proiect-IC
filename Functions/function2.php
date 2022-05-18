@@ -20,7 +20,19 @@ function getImage($idProduct){
         }
 	
     }
-    function getImageProfil($Username){
+
+function getPromoProducts($idPromo)   {
+    $dbhost = "localhost";
+    $dbuser = "root";
+    $dbpass = "";
+    $dbname = "bikeattack";
+    $con = mysqli_connect($dbhost,$dbuser,$dbpass,$dbname);
+
+    $query = mysqli_query($con,"select idProdus from produsepromotionale where idPromotie = '$idPromo' ");
+    return $query;
+}
+
+function getImageProfil($Username){
         $dbhost = "localhost";
         $dbuser = "root";
         $dbpass = "";

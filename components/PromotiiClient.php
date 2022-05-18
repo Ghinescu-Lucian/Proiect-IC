@@ -124,8 +124,28 @@ if(isset($_POST["add_to_cart"]))
               <div class="popup-card">
                 <a><i class="fas fa-times close-btn"></i></a>
                 <div class="product-img">
-                  <img src="../uploads/'.$row["Image"].'" alt="">
-                </div>
+                <div class="slideshow-container">
+                <div class="mySlides fade">
+                   <img src="../uploads/'.$row["Image"].'" alt="">
+                 </div>  
+                
+            ';
+            $products = getPromoProducts($row["idPromo"]);
+            if($products->num_rows>0){
+              while($p = $products->fetch_assoc())
+              {
+                 $img = getImage($p["idProdus"]);
+                  echo '<div class="mySlides fade">
+                  <img src="../uploads/'.$img.'" style="width:100%">
+                </div>';
+              }
+            }
+        
+               echo '
+               <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+               <a class="next" onclick="plusSlides(1)">&#10095;</a>
+               </div>  
+                 </div>
                 <div class="info">
                   <h2>'.$row["Denumire"].'<br><span>ID: '.$row["idPromo"].'</span></h2>
                   <p>'.$row["Descriere"].'.</p>
@@ -161,7 +181,7 @@ if(isset($_POST["add_to_cart"]))
   var popupViews = document.querySelectorAll('.popup-view');
   var popupBtns = document.querySelectorAll('.popup-btn');
   var closeBtns = document.querySelectorAll('.close-btn');
-
+  let slideIndex = 1;
   //javascript for quick view button
   var popup = function(popupClick){
     popupViews[popupClick].classList.add('active');
@@ -180,6 +200,35 @@ if(isset($_POST["add_to_cart"]))
       });
     });
   });
+
+  showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  }
+
   </script>
 
 </body>
