@@ -64,10 +64,10 @@ session_start();
   <head>
     <meta charset="utf-8">
     <title>BikeAttack</title>
-    <link rel="stylesheet" href="../Styles/LoginStyle.css">
+    <link rel="stylesheet" href="../Styles/PlasareComenzi.css">
   </head>
   <body>
-    <img class="logo" src="../Imagini/LogoPng.png">
+  <img class="logo" src="../Imagini/cyclist.png">
     <div class="center">
       <h1>Informatii livrare</h1>
       <form method="POST">
@@ -93,7 +93,7 @@ session_start();
         </div>
         <input id="LoginButton" type="submit" value="Plaseaza Comanda">
         <div class="signup_link">
-          <br> <a href="../Index.php">Home</a>
+          <br> <a href="../components/Cos.php">Continua cumparaturile</a>
         </div>
       </form>
     </div>
