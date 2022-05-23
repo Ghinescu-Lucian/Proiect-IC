@@ -13,7 +13,7 @@ session_start();
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="../styles/AdaugareProduseStyle.css">
-    <title>BikeAttack</title>
+    <title>Ride-bybicycle</title>
 	<style>
 		#errorMs {
 			color: #a00;

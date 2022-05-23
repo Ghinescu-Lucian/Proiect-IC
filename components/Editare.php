@@ -16,6 +16,44 @@ if(isset($_POST["keyword"])){
   else
     echo "<script>alert('Cuvant inexistent!')</script>";  
 }
+if(isset($_POST["add_to_cart"]))
+{
+  $one=1;
+   if(isset($_SESSION["shopping_cart"]))
+  {
+         $item_array_id = array_column($_SESSION["shopping_cart"],"item_id");
+         if(!in_array($_POST["hidden_idProduct"], $item_array_id))
+         {
+              $count = count($_SESSION["shopping_cart"]);
+              $item_array = array(
+                'item_id'        => $_POST["hidden_idProduct"],
+                'item_name'      => $_POST["hidden_name"],
+                'item_price'     => $_POST["hidden_price"],
+                'item_img'       => $_POST["hidden_img"],
+                'item_quantity'  => $one
+      
+              );
+              $_SESSION["shopping_cart"][$count] = $item_array;
+
+         }
+         else{
+              echo '<script>alert("Produsul a fost adaugat deja in cos!")</script>';
+             // echo '<script>window.location="Biciclete.php"</script>';
+
+            }
+  }
+  else{
+    $item_array = array(
+          'item_id'        => $_POST["hidden_idProduct"],
+          'item_name'      => $_POST["hidden_name"],
+          'item_price'     => $_POST["hidden_price"],
+          'item_img'       => $_POST["hidden_img"],
+          'item_quantity'  => $one
+
+        );
+    $_SESSION["shopping_cart"][0]=$item_array;   
+  }
+}
 
 /*if(isset($_POST["add_to_cart"]))
 {
@@ -80,7 +118,7 @@ if(isset($_POST["keyword"])){
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Editare</title>
+  <title>Ride-by-bicycle</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../Styles/EditareStyle.css">
     <title>BikeAttack</title>
@@ -147,7 +185,7 @@ if(isset($_POST["keyword"])){
                         <input type="hidden" name="idProduct" value="'.$row["idProduct"].'" />
                         <input type="submit" name="add_to_cart" class="add-cart-btn" value="Sterge"/>
                     </form> 
-                    <form method="POST" action="Promotii.php?action=add&id='.$row["idProduct"].'">
+                    <form method="POST" action="Editare.php?action=add&id='.$row["idProduct"].'">
                     <input type="hidden" name="hidden_name" value="'.$row["Nume"].'" />
                     <input type="hidden" name="hidden_price" value="'.$row["Pret"].'" />
                     <input type="hidden" name="hidden_idProduct" value="'.$row["idProduct"].'" />

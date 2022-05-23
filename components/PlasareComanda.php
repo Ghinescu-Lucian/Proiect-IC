@@ -63,9 +63,9 @@ session_start();
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>BikeAttack</title>
+    <title>Ride-By-Bicycle</title>
     <link rel="stylesheet" href="../Styles/PlasareComenzi.css">
-  </head>
+    </head>
   <body>
   <img class="logo" src="../Imagini/cyclist.png">
     <div class="center">

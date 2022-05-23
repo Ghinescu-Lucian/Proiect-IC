@@ -70,7 +70,7 @@ if (isset($_POST['add'])){
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../Styles/BicicleteStyle.css">
-    <title>BikeAttack</title>
+    <title>Ride-by-bicycle</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 <!-- Bootstrap CDN -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -78,7 +78,7 @@ if (isset($_POST['add'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-  <a class="social-icon" href="./components/Cos.php" target="_blank">
+  <a class="social-icon" href="../components/Profil.php">
   <ion-icon name="person-circle-outline" role="img" class="md hydrated" aria-label="person circle outline"></ion-icon>
   </a>
 <ul id="menu">

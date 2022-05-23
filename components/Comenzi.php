@@ -43,7 +43,7 @@ session_start();
     <link rel="stylesheet" href="../Styles/ComenziStyle.css">
     <link rel="stylesheet" href="../Styles/BicicleteStyle.css">
 
-    <title>BikeAttack</title>
+    <title>Ride-by-bicycle</title>
     <style>
         table {
         position: relative;

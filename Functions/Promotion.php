@@ -20,7 +20,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     
 	 if(!empty($Nume) && !empty($Cantitate) && !empty($Pret))
 		{
-
+      $Descriere =$Descriere."<br>  Produse: ";
+      foreach($_SESSION["shopping_cart"] as $keys => $values)
+      {
+          $Descriere = $Descriere." <br> -".$values['item_name']." ".$values['item_price']."(PRP) x ".$values['item_quantity'];
+         // unset($_SESSION['shopping_cart'][$key]);    
+      }
         //save to database
       //	$user_id = random_num(20);
         $query1= "select Denumire from promotii where Denumire='$Nume'";
@@ -35,11 +40,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         </script>';
         }
         else {
+
           $query = "insert into promotii (Denumire,Descriere,Pret,Cantitate) values ('$Nume','$Descriere','$Pret','$Cantitate')";
            $result = mysqli_query($con, $query);
-           echo '<script type="text/javascript">
-           window.onload = function () { alert("Produs adaugat cu succes!"); }
-         </script>';
+        //    echo '<script type="text/javascript">
+        //    window.onload = function () { alert("Promotie adaugata cu succes!"); }
+        //  </script>';
         }
         //if($result) echo "good"; 
         //else echo "Bad";
@@ -56,16 +62,14 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
           foreach($_SESSION["shopping_cart"] as $keys => $values)
           {
               $val = $val." "."('".$values['item_id']."','".$promoId."','".$values['item_quantity']."' ),";
-              // $Detalii = $Detalii." ".$values['item_name']." ".$values['item_price']." x ".$values['item_quantity'];
-              // $total = $total + (int)$values['item_price'] * (int)$values['item_quantity'];
-            // unset($_SESSION['shopping_cart'][$key]);    
+   
           }
          $val= substr_replace($val,"",-1);
   
       }
     if(!empty($val))
         {
-           echo $val;
+          //  echo $val;
           // echo $promoId;
 
             $query2 = "insert into produsepromotionale (idProdus, idPromotie, Cantitate) values ".$val."";
@@ -79,21 +83,24 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                     unset($_SESSION['shopping_cart'][$key]);
                 
                   echo "<script>alert('Promotie inregistrata  cu succes!')</script>";
-                  if(strcmp($user_data['Username'],"Admin")==0)
+                  echo "<script>window.location = '../components/AdaugarePromotie.php'</script>";  
+                  if(strcmp($user_data['Username'],"Admin") == 0)
                      echo "<script>window.location = '../components/AdaugareProduse.php'</script>";   
-                  else   echo "<script>window.location = 'Index.php'</script>"; 
+                  //  else   echo "<script>window.location = '../Index.php'</script>"; 
+                  else echo "AICIIIIII!@#$!";
             }
             else{
         echo "<script>alert('Eroare baza de date!')</script>";
         if(strcmp($user_data['Username'],"Admin")==0)
            echo "<script>window.location = '../components/AdaugareProduse.php'</script>";
-        else   echo "<script>window.location = 'Index.php'</script>";  
+        // else   echo "<script>window.location = '../Index.php'</script>"; 
+        else echo "AICI!@12344!"; 
 
       }
         }else
         {
       echo "<script>alert('Completati toate campurile!')</script>";
-    //  echo "<script>window.location = '../components/AdaugarePromotie.php'</script>";
+      echo "<script>window.location = '../components/AdaugarePromotie.php'</script>";
     }
 
 		}else
@@ -120,12 +127,11 @@ if(isset($_POST["submit"]) && !empty($_FILES["file"]["name"])){
 			$result1= mysqli_query($con,$query1);
 			$user_data = mysqli_fetch_assoc($result1);
       $promoId = $user_data['idPromo'];
-    //  $insert = $con->query("INSERT into promotii (Image) VALUES ('".$fileName."') ");
       $insert = $con->query("UPDATE promotii SET Image = '$fileName' WHERE  idPromo = '$promoId' ");
         if($insert){
                 $statusMsg = "The file ".$fileName. " has been uploaded successfully.";
                // echo "Promotion ID: '".$user_data."' ";
-               // header('Location: ../components/AdaugarePromotie.php');
+              //  header('Location: ../components/AdaugarePromotie.php');
             }else{
                 $statusMsg = "File upload failed, please try again.";
             } 
