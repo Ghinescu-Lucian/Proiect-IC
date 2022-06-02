@@ -75,12 +75,6 @@ echo "wrong username or password!";
         
             <td>'.$row['Username'].'</td>
             <td>'.$row['Status'].'</td>
-            <td>  
-            <form method="POST">
-                <input type="hidden" name="idOrder" value="'.$row["idOrder"].'" />
-                <input type="submit" name="Detalii" class="add-cart-btn" value="Detalii"/>
-            </form> 
-            </td>
         </tr>
         ';
         }

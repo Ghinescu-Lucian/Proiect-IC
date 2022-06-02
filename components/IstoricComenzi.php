@@ -56,12 +56,12 @@ session_start();
   <form enctype="multipart/form-data">
   
           <div class="txt_field">
-          <input><textarea name="Descriere" rows=10 cols=90><?php if($_SESSION["idComanda"]) echo $_SESSION['Detalii']; else echo "1234"; ?></textarea>
+          <input><textarea name="Descriere" rows=10 cols=90><?php if(isset($_SESSION["idComanda"])) echo $_SESSION['Detalii']; else echo ""; ?></textarea>
           <span></span>
             <label>Detalii</label>
           </div>
           <div class="txt_field">
-            <input name="Status" type="text" value="<?php if($_SESSION["idComanda"]) echo $_SESSION['Status']; ?>">
+            <input name="Status" type="text" value="<?php if(isset($_SESSION["idComanda"])) echo $_SESSION['Status']; ?>">
             <span></span>   
             <label>Status</label>
           </div>

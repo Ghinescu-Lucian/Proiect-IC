@@ -91,18 +91,18 @@ if(isset($_POST["add_to_cart"]))
    </ul>
 </ul>
 
-<form method="POST">
+<!-- <form method="POST">
 <div class="wrapper">
       <div class="search-input">
         <a href="" target="_blank" hidden></a>
         <input type="text" name="keyword" placeholder="Cuvinte cheie">
         <div class="autocom-box">
-          <!-- here list are inserted from javascript -->
+          <!-- here list are inserted from javascript --
         </div>
         <div class="icon"><button type="submit" class="fas fa-search"></button></div>
       </div>
 </div>
-</form>
+</form> -->
 
    <div class="container">
 
@@ -111,11 +111,13 @@ if(isset($_POST["add_to_cart"]))
         // output data of each row
         while($row = $promotions_data->fetch_assoc()) {
         //  echo 'ID: ' .$row["idProduct"] ;
+        $descrp = str_replace("<br/>"," ",$row["Denumire"]);
+
           //$res = getImage($row["idProduct"]);
              echo '
-            <div class= "product">
+            <div class= "product"> 
             <div class="product-card">
-              <h2 class="name">'. $row["Denumire"]. '</h2>
+              <h2 class="name">'. $descrp. '</h2>
               <span class="price">' . $row["Pret"].' lei</span>
               <a class="popup-btn">Detalii</a>
               <img src="../uploads/'.$row["Image"].'" class="product-img" alt="">
@@ -142,11 +144,13 @@ if(isset($_POST["add_to_cart"]))
             }
         
                echo '
+               
+               </div>  
                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                <a class="next" onclick="plusSlides(1)">&#10095;</a>
-               </div>  
                  </div>
                 <div class="info">
+               
                   <h2>'.$row["Denumire"].'<br><span>ID: '.$row["idPromo"].'</span></h2>
                   <p>'.$row["Descriere"].'.</p>
                   <span class="price">'.$row["Pret"].' lei</span>
@@ -156,7 +160,7 @@ if(isset($_POST["add_to_cart"]))
                     <input type="hidden" name="hidden_price" value="'.$row["Pret"].'" />
                     <input type="hidden" name="hidden_idProduct" value="'.$row["idPromo"].'" />
                     <input type="hidden" name="hidden_img" value="'.$row["Image"].'" /> 
-                    <input type="submit" name="add_to_cart" class="add-cart-btn" value="Selecteaza produs"/>
+                    <input type="submit" name="add_to_cart" class="add-cart-btn" value="Adauga in cos"/>
                  </form>    
                 </div>
               </div>

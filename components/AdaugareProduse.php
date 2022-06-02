@@ -24,7 +24,7 @@ session_start();
 	</style>
 </head>
 <body>
-<ul id="menu">
+<ul id="menu"> 
   <ul>
         <center>
     <li><a href="AdaugareProduse.php">Adaugare</a></li>

@@ -162,13 +162,12 @@ if (isset($_POST['add'])){
                                 echo "<h6>Pret (0 produse)</h6>";
                             }
                         ?>
-                        <h6>Transport</h6>
+                       
                         <hr>
                         <h6>Total de plata</h6>
                     </div>
                     <div class="col-md-6">
                         <h6><?php echo $total; ?> lei</h6>
-                        <h6 class="text-success">FREE</h6>
                         <hr>
                         <h6><?php
                             echo $total;

@@ -74,7 +74,7 @@ if(isset($_POST["add_to_cart"]))
         <li><a href="AdaugareProduse.php">Adaugare</a></li>
     <li><a href="Editare.php">Editare</a></li>		
     <li><a href="Comenzi.php">Comenzi</a></li>
-    <li><a href="AdaugarePromotie.php">Promo</a></li>
+    <li><a href="AdaugarePromotie.php">Adauga promo</a></li>
     
 
     <?php
@@ -86,18 +86,18 @@ if(isset($_POST["add_to_cart"]))
    </ul>
 </ul>
 
-<form method="POST">
+<!-- <form method="POST">
 <div class="wrapper">
       <div class="search-input">
         <a href="" target="_blank" hidden></a>
         <input type="text" name="keyword" placeholder="Cuvinte cheie">
         <div class="autocom-box">
-          <!-- here list are inserted from javascript -->
+          <!-- here list are inserted from javascript 
         </div>
         <div class="icon"><button type="submit" class="fas fa-search"></button></div>
       </div>
 </div>
-</form>
+</form> -->
 
    <div class="container">
 
@@ -107,10 +107,11 @@ if(isset($_POST["add_to_cart"]))
         while($row = $promotions_data->fetch_assoc()) {
         //  echo 'ID: ' .$row["idProduct"] ;
           //$res = getImage($row["idProduct"]);
+          $descrp = str_replace("<br/>"," ",$row["Denumire"]);
              echo '
             <div class= "product">
             <div class="product-card">
-              <h2 class="name">'. $row["Denumire"]. '</h2>
+              <h2 class="name">'. $descrp. '</h2>
               <span class="price">' . $row["Pret"].' lei</span>
               <a class="popup-btn">Detalii</a>
               <img src="../uploads/'.$row["Image"].'" class="product-img" alt="">
@@ -142,7 +143,7 @@ if(isset($_POST["add_to_cart"]))
                  </div>  
                    </div>
                 <div class="info">
-                  <h2>'.$row["Denumire"].'<br><span>ID: '.$row["idPromo"].'</span></h2>
+                  <h2>'.$row["Denumire"].'<br><br><span>ID: '.$row["idPromo"].'</span></h2>
                   <p>'.$row["Descriere"].'.</p>
                   <span class="price">'.$row["Pret"].' lei</span>
                 <!--  <a href="#" class="add-cart-btn" >Add to Cart</a>-->

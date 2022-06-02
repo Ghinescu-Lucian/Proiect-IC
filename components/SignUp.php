@@ -29,12 +29,15 @@ session_start();
 			//save to database
 		//	$user_id = random_num(20);
 			$query = "insert into users (Username,Password,Nume,Email,img) values ('$Username','$Password','$Name','$Email','$fileNewName')";
+      echo $query;
 			$result = $con->query($query);
       if($result) {
       echo "good";
+      echo  '<script>alert("Successfull register")</script>';
       move_uploaded_file($fileTmpName,"../uploads/".$fileNewName);
+      		  header("Location: Login.php");
+
       }else echo "Bad";
-		  header("Location: Login.php");
 			die;
 		}else
 		{
